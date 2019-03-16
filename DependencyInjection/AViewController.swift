@@ -1,10 +1,16 @@
 import UIKit
 
+protocol BFactory {
+    func makeB(session: Session) -> UIViewController
+}
+
 class AViewController: UIViewController {
     let authGateway: AuthGateway
+    let bFactory: BFactory
     
-    init(authGateway: AuthGateway) {
+    init(authGateway: AuthGateway, bFactory: BFactory) {
         self.authGateway = authGateway
+        self.bFactory = bFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,9 +30,8 @@ class AViewController: UIViewController {
     
     @objc func goToB() {
         let session = authGateway.authenticate()
-        let store = Store(session: session)
 
-        let b = BViewController(store: store)
+        let b = bFactory.makeB(session: session)
         show(b, sender: self)
     }
 }

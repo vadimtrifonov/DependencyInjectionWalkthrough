@@ -9,15 +9,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         let window = UIWindow()
-        
-        let authGateway = AuthGateway()
-        let a = AViewController(authGateway: authGateway)
-        let navigationController = UINavigationController(rootViewController: a)
-        window.rootViewController = navigationController
-        
+        window.rootViewController = Container().makeA()
         window.makeKeyAndVisible()
         self.window = window
         
         return true
+    }
+}
+
+struct Container: BFactory {
+    
+    func makeA() -> UIViewController {
+        let authGateway = AuthGateway()
+        let a = AViewController(authGateway: authGateway, bFactory: self)
+        return UINavigationController(rootViewController: a)
+    }
+    
+    func makeB(session: Session) -> UIViewController {
+        let store = Store(session: session)
+        return BViewController(store: store)
     }
 }
