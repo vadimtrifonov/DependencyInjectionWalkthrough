@@ -1,10 +1,16 @@
 import UIKit
 
+protocol DFactory {
+    func makeD(store: Store) -> UIViewController
+}
+
 class CViewController: UIViewController {
     private let store: Store
+    private let dFactory: DFactory
     
-    init(store: Store) {
+    init(store: Store, dFactory: DFactory) {
         self.store = store
+        self.dFactory = dFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,7 +29,7 @@ class CViewController: UIViewController {
     }
     
     @objc func goToD() {
-        let d = DViewController(store: store)
+        let d = dFactory.makeD(store: store)
         show(d, sender: self)
     }
 }

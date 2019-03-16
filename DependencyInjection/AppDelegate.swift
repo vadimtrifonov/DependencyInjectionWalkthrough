@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-struct Container: BFactory {
+struct Container: BFactory, CFactory, DFactory {
     
     func makeA() -> UIViewController {
         let authGateway = AuthGateway()
@@ -27,6 +27,14 @@ struct Container: BFactory {
     
     func makeB(session: Session) -> UIViewController {
         let store = Store(session: session)
-        return BViewController(store: store)
+        return BViewController(store: store, cFactory: self)
+    }
+
+    func makeC(store: Store) -> UIViewController {
+        return CViewController(store: store, dFactory: self)
+    }
+
+    func makeD(store: Store) -> UIViewController {
+        return DViewController(store: store)
     }
 }

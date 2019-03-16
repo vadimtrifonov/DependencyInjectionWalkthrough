@@ -1,11 +1,17 @@
 import UIKit
 
+protocol CFactory {
+    func makeC(store: Store) -> UIViewController
+}
+
 class BViewController: UIViewController {
     private var field: UITextField!
     private let store: Store
+    private let cFactory: CFactory
     
-    init(store: Store) {
+    init(store: Store, cFactory: CFactory) {
         self.store = store
+        self.cFactory = cFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,7 +33,7 @@ class BViewController: UIViewController {
     @objc func goToC() {
         store.save(state: field.text ?? "")
         
-        let c = CViewController(store: store)
+        let c = cFactory.makeC(store: store)
         show(c, sender: self)
     }
 }
