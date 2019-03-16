@@ -17,6 +17,22 @@ extension UIViewController {
         ])
     }
     
+    func addTextField() -> UITextField {
+        let field = UITextField()
+        field.borderStyle = .roundedRect
+        
+        view.addSubview(field)
+        
+        field.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            field.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            field.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
+            field.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -56)
+        ])
+        
+        return field
+    }
+    
     func addButton(title: String, action: Selector) {
         let button = UIButton(type: .system)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
