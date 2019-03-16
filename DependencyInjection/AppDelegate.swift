@@ -19,7 +19,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-
-struct Scope {
-    static var session: Session?
-}
