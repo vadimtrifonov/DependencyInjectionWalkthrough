@@ -1,10 +1,10 @@
 import UIKit
 
 class CViewController: UIViewController {
-    private let session: Session
+    private let store: Store
     
-    init(session: Session) {
-        self.session = session
+    init(store: Store) {
+        self.store = store
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,7 +23,7 @@ class CViewController: UIViewController {
     }
     
     @objc func goToD() {
-        let d = DViewController(session: session)
+        let d = DViewController(store: store)
         show(d, sender: self)
     }
 }

@@ -2,10 +2,10 @@ import UIKit
 
 class BViewController: UIViewController {
     private var field: UITextField!
-    private let session: Session
+    private let store: Store
     
-    init(session: Session) {
-        self.session = session
+    init(store: Store) {
+        self.store = store
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,9 +25,9 @@ class BViewController: UIViewController {
     }
     
     @objc func goToC() {
-        Store.shared.save(session: session, state: field.text ?? "")
+        store.save(state: field.text ?? "")
         
-        let c = CViewController(session: session)
+        let c = CViewController(store: store)
         show(c, sender: self)
     }
 }

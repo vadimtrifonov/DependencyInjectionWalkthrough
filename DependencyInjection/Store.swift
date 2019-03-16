@@ -1,16 +1,20 @@
 import Foundation
 
 class Store {
-    static let shared = Store()
+    private let session: Session
     
     // Simulates session-based persistent store (e.g., database)
     private var state: [Session: String] = [:]
     
-    func save(session: Session, state: String) {
+    init(session: Session) {
+        self.session = session
+    }
+    
+    func save(state: String) {
         self.state[session] = state
     }
     
-    func retrieve(session: Session) -> String? {
+    func retrieve() -> String? {
         return state[session]
     }
 }

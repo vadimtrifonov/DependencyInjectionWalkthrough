@@ -6,10 +6,10 @@ import UIKit
 
 class DViewController: UIViewController {
     private var label: UILabel!
-    private let session: Session
+    private let store: Store
     
-    init(session: Session) {
-        self.session = session
+    init(store: Store) {
+        self.store = store
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,7 +30,7 @@ class DViewController: UIViewController {
     }
     
     func showSavedState() {
-        let state = Store.shared.retrieve(session: session)
+        let state = store.retrieve()
         label.text = state
     }
 }

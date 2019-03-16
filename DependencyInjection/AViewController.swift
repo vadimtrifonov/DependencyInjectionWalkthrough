@@ -15,8 +15,9 @@ class AViewController: UIViewController {
     
     @objc func goToB() {
         let session = authGateway.authenticate()
+        let store = Store(session: session)
         
-        let b = BViewController(session: session)
+        let b = BViewController(store: store)
         show(b, sender: self)
     }
 }
