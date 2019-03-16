@@ -20,13 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 struct Container: BFactory, CFactory, DFactory {
     
     func makeA() -> UIViewController {
-        let authGateway = AuthGateway()
+        let authGateway = DefaultAuthGateway()
         let a = AViewController(authGateway: authGateway, bFactory: self)
         return UINavigationController(rootViewController: a)
     }
     
     func makeB(session: Session) -> UIViewController {
-        let store = Store(session: session)
+        let store = DefaultStore(session: session)
         return BViewController(store: store, cFactory: self)
     }
 

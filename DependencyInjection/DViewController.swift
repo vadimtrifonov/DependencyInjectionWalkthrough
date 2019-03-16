@@ -1,8 +1,6 @@
 import UIKit
 
 // 1. Pass through dependency in C
-// 2. Non-testable fetcher and store consumers (view controllers)
-// 3. Cannot be modularized
 
 class DViewController: UIViewController {
     private var label: UILabel!
