@@ -1,8 +1,7 @@
 import UIKit
 
 class AViewController: UIViewController {
-    let authGateway = AuthGateway()
-    
+    let authGateway = AuthGateway()    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -15,6 +14,7 @@ class AViewController: UIViewController {
     
     @objc func goToB() {
         let session = authGateway.authenticate()
+        Scope.session = session
         
         let b = BViewController()
         show(b, sender: self)
