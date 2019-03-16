@@ -10,7 +10,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         let window = UIWindow()
         
-        let navigationController = UINavigationController(rootViewController: AViewController())
+        let authGateway = AuthGateway()
+        let a = AViewController(authGateway: authGateway)
+        let navigationController = UINavigationController(rootViewController: a)
         window.rootViewController = navigationController
         
         window.makeKeyAndVisible()
