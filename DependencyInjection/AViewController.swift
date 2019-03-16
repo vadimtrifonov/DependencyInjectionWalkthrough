@@ -1,6 +1,7 @@
 import UIKit
 
 class AViewController: UIViewController {
+    let authGateway = AuthGateway()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -9,10 +10,12 @@ class AViewController: UIViewController {
         view.backgroundColor = .white
         addWatermark(text: "A")
         
-        addButton(title: "Go to B", action: #selector(goToB))
+        addButton(title: "Authenticate and go to B", action: #selector(goToB))
     }
     
     @objc func goToB() {
+        let session = authGateway.authenticate()
+        
         let b = BViewController()
         show(b, sender: self)
     }

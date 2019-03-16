@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D49E0D3223C8308002795E9 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49E0D2223C8308002795E9 /* Auth.swift */; };
 		DDED3951215686F500007D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED3950215686F500007D95 /* AppDelegate.swift */; };
 		DDED3953215686F500007D95 /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED3952215686F500007D95 /* AViewController.swift */; };
 		DDED3958215686FE00007D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDED3957215686FE00007D95 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D49E0D2223C8308002795E9 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		DDED394D215686F500007D95 /* DependencyInjection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependencyInjection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDED3950215686F500007D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDED3952215686F500007D95 /* AViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				DDED396A21579C8E00007D95 /* CViewController.swift */,
 				DDED396C21579DF700007D95 /* DViewController.swift */,
 				DDED395C215686FE00007D95 /* Info.plist */,
+				5D49E0D2223C8308002795E9 /* Auth.swift */,
 				DDED3959215686FE00007D95 /* LaunchScreen.storyboard */,
 				DDED396E2157A7BD00007D95 /* UIViewController+Elements.swift */,
 			);
@@ -160,6 +163,7 @@
 				DDED396B21579C8E00007D95 /* CViewController.swift in Sources */,
 				DDED396F2157A7BD00007D95 /* UIViewController+Elements.swift in Sources */,
 				DDED3953215686F500007D95 /* AViewController.swift in Sources */,
+				5D49E0D3223C8308002795E9 /* Auth.swift in Sources */,
 				DDED39692157975500007D95 /* BViewController.swift in Sources */,
 				DDED396D21579DF700007D95 /* DViewController.swift in Sources */,
 				DDED3951215686F500007D95 /* AppDelegate.swift in Sources */,
