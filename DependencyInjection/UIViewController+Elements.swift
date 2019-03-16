@@ -47,4 +47,22 @@ extension UIViewController {
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+    
+    func addLabel() -> UILabel {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        
+        view.addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+        
+        return label
+    }
 }
