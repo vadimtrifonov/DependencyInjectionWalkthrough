@@ -1,7 +1,7 @@
 import UIKit
 
 protocol CFactory {
-    func makeC(store: Store) -> UIViewController
+    func makeC() -> UIViewController
 }
 
 class BViewController: UIViewController {
@@ -33,7 +33,7 @@ class BViewController: UIViewController {
     @objc func goToC() {
         store.save(state: field.text ?? "")
         
-        let c = cFactory.makeC(store: store)
+        let c = cFactory.makeC()
         show(c, sender: self)
     }
 }

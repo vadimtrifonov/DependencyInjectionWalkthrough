@@ -18,44 +18,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 struct AContainer: BFactory {
+    let authGateway = DefaultAuthGateway()
     
     func makeA() -> UIViewController {
-        let authGateway = DefaultAuthGateway()
         let a = AViewController(authGateway: authGateway, bFactory: self)
         return UINavigationController(rootViewController: a)
     }
     
     func makeB(session: Session) -> UIViewController {
-        return BContainer().makeB(session: session)
+        return BContainer(parent: self, session: session).makeB()
     }
 }
 
 struct BContainer: CFactory {
+    let parent: AContainer
+    let store: Store
     
-    func makeB(session: Session) -> UIViewController {
-        let store = DefaultStore(session: session)
+    init(parent: AContainer, session: Session) {
+        self.parent = parent
+        self.store = DefaultStore(session: session)
+    }
+    
+    func makeB() -> UIViewController {
         return BViewController(store: store, cFactory: self)
     }
     
-    func makeC(store: Store) -> UIViewController {
-        return CContainer().makeC(store: store)
+    func makeC() -> UIViewController {
+        return CContainer(parent: self).makeC()
     }
 }
 
 struct CContainer: DFactory {
+    let parent: BContainer
     
-    func makeC(store: Store) -> UIViewController {
-        return CViewController(store: store, dFactory: self)
+    func makeC() -> UIViewController {
+        return CViewController(dFactory: self)
     }
     
-    func makeD(store: Store) -> UIViewController {
-        return DContainer().makeD(store: store)
+    func makeD() -> UIViewController {
+        return DContainer(parent: self).makeD()
     }
 }
 
 struct DContainer {
+    let parent: CContainer
     
-    func makeD(store: Store) -> UIViewController {
+    func makeD() -> UIViewController {
+        let store = parent.parent.store
         return DViewController(store: store)
     }
 }

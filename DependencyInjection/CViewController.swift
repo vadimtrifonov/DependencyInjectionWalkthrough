@@ -1,15 +1,13 @@
 import UIKit
 
 protocol DFactory {
-    func makeD(store: Store) -> UIViewController
+    func makeD() -> UIViewController
 }
 
 class CViewController: UIViewController {
-    private let store: Store
     private let dFactory: DFactory
     
-    init(store: Store, dFactory: DFactory) {
-        self.store = store
+    init(dFactory: DFactory) {
         self.dFactory = dFactory
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,7 +27,7 @@ class CViewController: UIViewController {
     }
     
     @objc func goToD() {
-        let d = dFactory.makeD(store: store)
+        let d = dFactory.makeD()
         show(d, sender: self)
     }
 }

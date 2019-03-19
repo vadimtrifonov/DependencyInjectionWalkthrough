@@ -1,7 +1,5 @@
 import UIKit
 
-// 1. Pass through dependency in C
-
 class DViewController: UIViewController {
     private var label: UILabel!
     private let store: Store
