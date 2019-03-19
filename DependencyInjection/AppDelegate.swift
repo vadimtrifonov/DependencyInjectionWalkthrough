@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         let window = UIWindow()
-        window.rootViewController = Container().makeA()
+        window.rootViewController = AContainer().makeA()
         window.makeKeyAndVisible()
         self.window = window
         
@@ -17,23 +17,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-struct Container: BFactory, CFactory, DFactory {
+struct AContainer {
     
     func makeA() -> UIViewController {
         let authGateway = DefaultAuthGateway()
-        let a = AViewController(authGateway: authGateway, bFactory: self)
+        let a = AViewController(authGateway: authGateway, bFactory: BContainer())
         return UINavigationController(rootViewController: a)
     }
+}
+
+struct BContainer: BFactory {
     
     func makeB(session: Session) -> UIViewController {
         let store = DefaultStore(session: session)
-        return BViewController(store: store, cFactory: self)
+        return BViewController(store: store, cFactory: CContainer())
     }
+}
 
+struct CContainer: CFactory {
+    
     func makeC(store: Store) -> UIViewController {
-        return CViewController(store: store, dFactory: self)
+        return CViewController(store: store, dFactory: DContainer())
     }
+}
 
+struct DContainer: DFactory {
+    
     func makeD(store: Store) -> UIViewController {
         return DViewController(store: store)
     }
