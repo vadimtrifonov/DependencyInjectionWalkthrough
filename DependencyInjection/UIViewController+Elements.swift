@@ -2,7 +2,7 @@ import UIKit
 
 extension UIViewController {
     
-    func addWatermark(text: String) {
+    public func addWatermark(text: String) {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 250)
         label.textColor = UIColor(white: 0.9, alpha: 1)
@@ -17,7 +17,7 @@ extension UIViewController {
         ])
     }
     
-    func addTextField() -> UITextField {
+    public func addTextField() -> UITextField {
         let field = UITextField()
         field.borderStyle = .roundedRect
         
@@ -33,7 +33,7 @@ extension UIViewController {
         return field
     }
     
-    func addButton(title: String, action: Selector) {
+    public func addButton(title: String, action: Selector) {
         let button = UIButton(type: .system)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
         button.setTitle(title, for: .normal)
@@ -48,7 +48,7 @@ extension UIViewController {
         ])
     }
     
-    func addLabel() -> UILabel {
+    public func addLabel() -> UILabel {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.numberOfLines = 0

@@ -1,16 +1,18 @@
 import Foundation
 
-struct Session: Hashable {
-    let descriptrion: String
+public struct Session: Hashable {
+    public let descriptrion: String
 }
 
-protocol AuthGateway {
+public protocol AuthGateway {
     func authenticate() -> Session
 }
 
-class DefaultAuthGateway: AuthGateway {
+public class DefaultAuthGateway: AuthGateway {
     
-    func authenticate() -> Session {
+    public init() {}
+    
+    public func authenticate() -> Session {
         return Session(descriptrion: "Acquired at runtime")
     }
 }

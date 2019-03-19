@@ -1,24 +1,24 @@
 import UIKit
 
-protocol BFactory {
+public protocol BFactory {
     func makeB(session: Session) -> UIViewController
 }
 
-class AViewController: UIViewController {
+public class AViewController: UIViewController {
     let authGateway: AuthGateway
     let bFactory: BFactory
     
-    init(authGateway: AuthGateway, bFactory: BFactory) {
+    public init(authGateway: AuthGateway, bFactory: BFactory) {
         self.authGateway = authGateway
         self.bFactory = bFactory
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "A"
