@@ -1,4 +1,5 @@
 import UIKit
+import BaseUI
 
 public protocol DFactory {
     func makeD() -> UIViewController

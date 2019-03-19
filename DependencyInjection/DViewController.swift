@@ -1,4 +1,5 @@
 import UIKit
+import Store
 
 public class DViewController: UIViewController {
     private var label: UILabel!

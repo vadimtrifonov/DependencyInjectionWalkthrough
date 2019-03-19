@@ -1,4 +1,5 @@
 import Foundation
+import Auth
 
 public protocol Store {
     func save(state: String)

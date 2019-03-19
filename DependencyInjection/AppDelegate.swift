@@ -1,4 +1,6 @@
 import UIKit
+import Store
+import Auth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
